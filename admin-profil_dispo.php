@@ -339,10 +339,10 @@ mysql_select_db('Sunlog', $base);
 
     <form method="post" action="#">
         <p>
-            <select name="pays" id="pays">
-                <option value="france">Ajouter</option>
-                <option value="espagne">Modifier</option>
-                <option value="italie">Supprimer</option>
+            <select name="deroulant">
+                <option value="ajouter">Ajouter</option>
+                <option value="modifier">Modifier</option>
+                <option value="supprimer">Supprimer</option>
             </select>
         </p>
         <input type="submit" value="Envoyer"/>
