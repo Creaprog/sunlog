@@ -13,7 +13,6 @@ mysql_select_db('Sunlog', $base);
 <head>
     <title>Sunlog</title>
     <meta charset="UTF-8">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
 <header>
     <img src="Sunlog.jpg" class="logo" width="500" alt="Logo"/>
