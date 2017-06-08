@@ -203,7 +203,7 @@ $db = new PDO("mysql:host=localhost;dbname=test;dbname=Sunlog;charset=utf8","roo
     </header>
     <body>
         <form action = "index.php" method = "post">
-            <div class = "bvn"> 
+            <div class = "bvn">
                 <?php
                 $blase = $db->query("SELECT statut,nom,prenom FROM membre WHERE login='" . $_SESSION['login'] . "' ");
                 $data = $blase->fetch(PDO::FETCH_ASSOC);

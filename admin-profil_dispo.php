@@ -6,8 +6,7 @@ if (!isset($_SESSION['login'])) {
 }
 ?>
 <?php
-$base = mysql_connect('localhost', 'root', 'root');
-mysql_select_db('Sunlog', $base);
+$db = new PDO("mysql:host=localhost;dbname=test;dbname=Sunlog;charset=utf8","root","root");
 ?>
 <html>
 <head>
@@ -23,12 +22,11 @@ mysql_select_db('Sunlog', $base);
 <form action="index.php" method="post">
     <div class="bvn">
         <?php
-        $blase = mysql_query("SELECT statut,nom,prenom FROM membre WHERE login='" . $_SESSION['login'] . "' ");
-        $data = mysql_fetch_assoc($blase);
+        $blase = $db->query("SELECT statut,nom,prenom FROM membre WHERE login='" . $_SESSION['login'] . "' ");
+        $data = $blase->fetch(PDO::FETCH_ASSOC);
         ?>
         <FONT COLOR=RED class="uti"> <?php echo $data['statut']; ?> : </FONT> <?php echo $data['nom'] ?>
         <?php
-        echo "";
         echo $data['prenom'];
         ?> <br>
     </div>
@@ -332,7 +330,7 @@ mysql_select_db('Sunlog', $base);
     </style>
     <div class="tabl">
         <?php
-        $reponse = mysql_query("SELECT * FROM profil WHERE dispo >= NOW()");
+        $reponse = $db->query("SELECT * FROM profil WHERE dispo >= NOW()");
         ?>
     </div>
 

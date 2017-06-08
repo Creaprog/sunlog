@@ -6,8 +6,7 @@ if (!isset($_SESSION['login'])) {
 }
 ?>
 <?php
-$base = mysql_connect('localhost', 'root', 'root');
-mysql_select_db('Sunlog', $base);
+$db = new PDO("mysql:host=localhost;dbname=test;dbname=Sunlog;charset=utf8","root","root");
 ?>
 <html>
     <head>

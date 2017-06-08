@@ -6,8 +6,7 @@ if (!isset($_SESSION['login'])) {
 }
 ?>
 <?php
-$base = mysql_connect('localhost', 'root', 'root');
-mysql_select_db('Sunlog', $base);
+$db = new PDO("mysql:host=localhost;dbname=test;dbname=Sunlog;charset=utf8","root","root");
 ?>
 <html>
     <head>
@@ -27,7 +26,6 @@ mysql_select_db('Sunlog', $base);
                 ?>
                 <FONT COLOR = RED class = "uti"> <?php echo $data['statut']; ?> : </FONT> <?php echo $data['nom'] ?>
                 <?php
-                echo "";
                 echo $data['prenom'];
                 ?> <br>
             </div>
