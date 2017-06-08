@@ -6,7 +6,7 @@ if (!isset($_SESSION['login'])) {
 }
 ?>
 <?php
-$base = mysql_connect('localhost', 'root', '');
+$base = mysql_connect('localhost', 'root', 'root');
 mysql_select_db('Sunlog', $base);
 ?>
 <html>

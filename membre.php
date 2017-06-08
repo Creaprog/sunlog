@@ -7,8 +7,7 @@ if (!isset($_SESSION['login'])) {
 ?>
 
 <?php
-$base = mysql_connect('localhost', 'root', '');
-mysql_select_db('Sunlog', $base);
+$db = new PDO("mysql:host=localhost;dbname=test;dbname=Sunlog;charset=utf8","root","root");
 ?>
 <html>
     <head>
@@ -206,17 +205,16 @@ mysql_select_db('Sunlog', $base);
         <form action = "index.php" method = "post">
             <div class = "bvn"> 
                 <?php
-                $blase = mysql_query("SELECT statut,nom,prenom FROM membre WHERE login='" . $_SESSION['login'] . "' ");
-                $data = mysql_fetch_assoc($blase);
+                $blase = $db->query("SELECT statut,nom,prenom FROM membre WHERE login='" . $_SESSION['login'] . "' ");
+                $data = $blase->fetch(PDO::FETCH_ASSOC);
                 ?>
                 <FONT COLOR = RED class = "uti"> <?php echo $data['statut']; ?> : </FONT> <?php echo $data['nom'] ?>
                 <?php
-                echo "";
                 echo $data['prenom'];
                 ?> <br>
                 <?php
                 $temps = date('Y-m-d H:i:s');
-                mysql_query("UPDATE membre SET last_login = '" . $temps . "' WHERE login='" . $_SESSION['login'] . "' ") or die(mysql_error());
+                //mysql_query("UPDATE membre SET last_login = '" . $temps . "' WHERE login='" . $_SESSION['login'] . "' ") or die(mysql_error());
                 ?> <FONT COLOR = RED> Connexion :  </FONT>
                 <?php echo date('d-m-Y H:i:s');
                 ?>

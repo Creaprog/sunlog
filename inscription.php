@@ -7,7 +7,7 @@ if (isset($_POST['inscription']) && $_POST['inscription'] == 'Inscription') {
         if ($_POST['pass'] != $_POST['pass_confirm']) {
             echo "<script language='javascript'> alert('Les mots de passe ne correspondent pas.') </script>";
         } else {
-            $base = mysql_connect('localhost', 'root', '');
+            $base = mysql_connect('localhost', 'root', 'root');
             mysql_select_db('Sunlog', $base);
 
             // on recherche si ce login est déjà utilisé par un autre membre
